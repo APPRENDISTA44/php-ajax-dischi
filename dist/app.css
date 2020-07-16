@@ -27,3 +27,36 @@ main {
   background-color: #1e2d3b;
 }
 
+main .container {
+  padding-top: 100px;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+main .container .album {
+  text-align: center;
+  flex-basis: 20%;
+  background-color: #2e3a46;
+  margin-bottom: 30px;
+  margin-right: 2%;
+  margin-left: 2%;
+  padding: 25px 25px 50px 25px;
+}
+
+main .container .album img {
+  width: 100%;
+}
+
+main .container .album h2 {
+  color: white;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+main .container .album h3 {
+  color: grey;
+}
+

@@ -1,0 +1,29 @@
+/* reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*HEADER*/
+
+header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #2e3a46;
+}
+
+header img {
+  height: 70px;
+  position: relative;
+  left: 30%;
+}
+
+/*MAIN*/
+
+main {
+  background-color: #1e2d3b;
+}
+

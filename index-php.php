@@ -8,14 +8,22 @@
     <title>dischi</title>
   </head>
   <body>
+
+    <!-- header -->
     <header>
       <img src="img/logo-small.svg" alt="logo">
     </header>
+    <!--fine header -->
 
+    <!-- main -->
     <main>
       <div class="container">
+        <!-- albums -->
         <?php echo stampa_album($database); ?>
+        <!--fine albums -->
       </div>
     </main>
+    <!--fine main -->
+
   </body>
 </html>

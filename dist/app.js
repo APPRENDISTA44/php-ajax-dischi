@@ -16097,20 +16097,58 @@ $(document).ready(function () {
     method: "GET",
     success: function success(data) {
       console.log(data);
-      printAlbum(data); // var html = template(context);
+      printAlbum(data, 'all');
+      buildOptions(data); // var html = template(context);
     },
     error: function error() {
       errore("Si è verificato un errore");
     }
-  });
+  }); //evento al cambiare della select
 
-  function printAlbum(data) {
+  $('select').change(function () {
+    var value = $(this).val();
+    $.ajax({
+      url: "http://localhost:8888/php-ajax-dischi/server.php",
+      method: "GET",
+      success: function success(data) {
+        console.log(data);
+        $('#albums').html('');
+        printAlbum(data, value);
+      },
+      error: function error() {
+        errore("Si è verificato un errore");
+      }
+    });
+  }); //funzione che stampa tutti gli album
+  //PARAMETRO:array tornato da database
+
+  function printAlbum(data, value) {
     var source = $('#album-template').html();
     var template = Handlebars.compile(source);
 
+    if (value == 'all') {
+      for (var i = 0; i < data.length; i++) {
+        var html = template(data[i]);
+        $('#albums').append(html);
+      }
+    } else {
+      for (var i = 0; i < data.length; i++) {
+        if (value == data[i].author) {
+          var html = template(data[i]);
+          $('#albums').append(html);
+        }
+      }
+    }
+  } //costruisco le opzioni della select con gli autori disponibili
+  //PARAMETRO:array tornato da database
+
+
+  function buildOptions(data) {
+    $('select').html('');
+    $('select').append('<option value="all">All genres</option>');
+
     for (var i = 0; i < data.length; i++) {
-      var html = template(data[i]);
-      $('#albums').append(html);
+      $('select').append('<option value="' + data[i].author + '">' + data[i].author + '</option>');
     }
   }
 });

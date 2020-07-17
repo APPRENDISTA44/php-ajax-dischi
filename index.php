@@ -10,15 +10,18 @@
     <!-- header -->
     <header>
       <img src="img/logo-small.svg" alt="logo">
+        <select>
+          
+        </select>
     </header>
     <!--fine header -->
 
     <!-- main -->
     <main>
+      <!-- albums -->
       <div class="container" id="albums">
-        <!-- albums -->
-        <!--fine albums -->
       </div>
+      <!--fine albums -->
     </main>
     <!--fine main -->
 

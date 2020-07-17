@@ -16092,7 +16092,27 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  console.log('prova');
+  $.ajax({
+    url: "http://localhost:8888/php-ajax-dischi/server.php",
+    method: "GET",
+    success: function success(data) {
+      console.log(data);
+      printAlbum(data); // var html = template(context);
+    },
+    error: function error() {
+      errore("Si è verificato un errore");
+    }
+  });
+
+  function printAlbum(data) {
+    var source = $('#album-template').html();
+    var template = Handlebars.compile(source);
+
+    for (var i = 0; i < data.length; i++) {
+      var html = template(data[i]);
+      $('#albums').append(html);
+    }
+  }
 });
 
 /***/ }),

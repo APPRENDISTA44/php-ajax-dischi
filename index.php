@@ -15,7 +15,7 @@
 
     <!-- main -->
     <main>
-      <div class="container">
+      <div class="container" id="albums">
         <!-- albums -->
         <!--fine albums -->
       </div>
@@ -25,7 +25,12 @@
 
     <!-- Template handlebars -->
     <script id="album-template" type="text/x-handlebars-template">
-
+      <div class="album">
+        <img src="{{poster}}" alt="">
+        <h2>{{title}}</h2>
+        <h3>{{author}}</h3>
+        <h3>{{year}}</h3>
+      </div>
     </script>
 
 

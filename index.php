@@ -1,5 +1,3 @@
-<?php include __DIR__ . '/database.php' ?>
-<?php include __DIR__ . '/functions.php' ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -19,11 +17,19 @@
     <main>
       <div class="container">
         <!-- albums -->
-        <?php echo stampa_album($database); ?>
         <!--fine albums -->
       </div>
     </main>
     <!--fine main -->
-    
+
+
+    <!-- Template handlebars -->
+    <script id="album-template" type="text/x-handlebars-template">
+
+    </script>
+
+
+    <!-- codice js -->
+    <script type="text/javascript" src="dist/app.js"></script>
   </body>
 </html>

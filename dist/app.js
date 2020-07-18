@@ -16097,7 +16097,7 @@ $(document).ready(function () {
     method: "GET",
     success: function success(data) {
       console.log(data);
-      printAlbum(data, 'all');
+      printAlbum(data);
       buildOptions(data); // var html = template(context);
     },
     error: function error() {
@@ -16110,10 +16110,13 @@ $(document).ready(function () {
     $.ajax({
       url: "http://localhost:8888/php-ajax-dischi/server.php",
       method: "GET",
+      data: {
+        name: value
+      },
       success: function success(data) {
         console.log(data);
         $('#albums').html('');
-        printAlbum(data, value);
+        printAlbum(data);
       },
       error: function error() {
         errore("Si è verificato un errore");
@@ -16122,22 +16125,13 @@ $(document).ready(function () {
   }); //funzione che stampa tutti gli album
   //PARAMETRO:array tornato da database
 
-  function printAlbum(data, value) {
+  function printAlbum(data) {
     var source = $('#album-template').html();
     var template = Handlebars.compile(source);
 
-    if (value == 'all') {
-      for (var i = 0; i < data.length; i++) {
-        var html = template(data[i]);
-        $('#albums').append(html);
-      }
-    } else {
-      for (var i = 0; i < data.length; i++) {
-        if (value == data[i].author) {
-          var html = template(data[i]);
-          $('#albums').append(html);
-        }
-      }
+    for (var i = 0; i < data.length; i++) {
+      var html = template(data[i]);
+      $('#albums').append(html);
     }
   } //costruisco le opzioni della select con gli autori disponibili
   //PARAMETRO:array tornato da database

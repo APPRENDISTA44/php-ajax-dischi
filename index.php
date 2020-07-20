@@ -9,9 +9,7 @@
     <!-- header -->
     <header>
       <img src="img/logo-small.svg" alt="logo">
-        <select>
-
-        </select>
+      
     </header>
     <!--fine header -->
 

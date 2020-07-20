@@ -3,9 +3,9 @@
  if(isset($_GET['name'])){
    if ($_GET['name'] != 'all') {
     $array = [];
-    for ($i=0; $i < count($database); $i++) {
-      if ($database[$i]['author'] == $_GET['name']) {
-       $array[] = $database[$i];
+    foreach ($database as $cd) {
+      if ($cd ['author'] === $_GET['name']) {
+       $array[] = $cd;
       }
     }
     echo json_encode($array);
